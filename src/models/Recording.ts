@@ -2,21 +2,21 @@ import mongoose from '../util/mongoose';
 
 const { Schema } = mongoose;
 
-export default mongoose.model('Gravacao', new Schema({
-  telefone: {
+export default mongoose.model('Recording', new Schema({
+  phone: {
     type: String,
     required: true,
   },
 
-  ramal: {
+  branch: {
     type: String,
     required: true,
   },
 
-  dataGravacao: {
+  recordedAt: {
     type: Date,
     required: true,
   },
 }, {
-  timestamps: false,
+  timestamps: true,
 }));

@@ -2,32 +2,32 @@ import mongoose from '../util/mongoose';
 
 const { Schema } = mongoose;
 
-export default mongoose.model('Tabulacao', new Schema({
-  nomeCliente: {
+export default mongoose.model('Tabulation', new Schema({
+  clientName: {
     type: String,
     required: true,
   },
 
-  numeroBinado: {
+  binedPhone: {
     type: String,
     required: true,
   },
 
-  numeroAcesso: {
+  accessPhone: {
     type: String,
     required: true,
   },
 
-  protocolo: {
+  protocol: {
     type: String,
     required: true,
     unique: true,
   },
 
-  dataAtendimento: {
+  calledAt: {
     type: Date,
     required: true,
   },
 }, {
-  timestamps: false,
+  timestamps: true,
 }));

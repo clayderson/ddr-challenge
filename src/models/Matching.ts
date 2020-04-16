@@ -3,17 +3,17 @@ import mongoose from '../util/mongoose';
 const { Schema } = mongoose;
 
 export default mongoose.model('Matching', new Schema({
-  gravacao: {
+  recording: {
     type: Schema.Types.ObjectId,
-    ref: 'Gravacao',
+    ref: 'Recording',
     required: true,
   },
 
-  tabulacao: {
+  tabulation: {
     type: Schema.Types.ObjectId,
-    ref: 'Tabulacao',
+    ref: 'Tabulation',
     required: true,
   }
 }, {
-  timestamps: false,
+  timestamps: true,
 }));

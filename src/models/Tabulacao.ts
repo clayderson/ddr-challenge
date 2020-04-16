@@ -2,7 +2,7 @@ import mongoose from '../util/mongoose';
 
 const { Schema } = mongoose;
 
-export default mongoose.model('Tabulation', new Schema({
+export default mongoose.model('Tabulacao', new Schema({
   nomeCliente: {
     type: String,
     required: true,

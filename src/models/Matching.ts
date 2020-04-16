@@ -3,31 +3,17 @@ import mongoose from '../util/mongoose';
 const { Schema } = mongoose;
 
 export default mongoose.model('Matching', new Schema({
-  nomeCliente: {
-    type: String,
+  gravacao: {
+    type: Schema.Types.ObjectId,
+    ref: 'Gravacao',
     required: true,
   },
 
-  numeroBinado: {
-    type: String,
+  tabulacao: {
+    type: Schema.Types.ObjectId,
+    ref: 'Tabulacao',
     required: true,
-  },
-
-  numeroAcesso: {
-    type: String,
-    required: true,
-  },
-
-  protocolo: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-
-  dataAtendimento: {
-    type: Date,
-    required: true,
-  },
+  }
 }, {
   timestamps: false,
 }));

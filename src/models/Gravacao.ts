@@ -2,7 +2,7 @@ import mongoose from '../util/mongoose';
 
 const { Schema } = mongoose;
 
-export default mongoose.model('Recording', new Schema({
+export default mongoose.model('Gravacao', new Schema({
   telefone: {
     type: String,
     required: true,

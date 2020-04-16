@@ -2,26 +2,22 @@ import debug from 'debug';
 import { Router, Request, Response } from 'express';
 import { sanitize } from 'indicative/sanitizer';
 import { validateAll } from 'indicative/validator';
-import Tabulation from '../models/Tabulation';
+import Recording from '../models/Recording';
 
-const logger = debug('challenge:tabulations');
+const logger = debug('challenge:recordings');
 
 export default (router: Router) => {
-  router.post('/tabulations', async (request: Request, response: Response) => {
+  router.post('/recordings', async (request: Request, response: Response) => {
     const sanitizeRules = {
-      clientName: 'trim',
-      binedPhone: 'trim',
-      accessPhone: 'trim',
-      protocol: 'trim',
-      calledAt: 'trim',
+      phone: 'trim',
+      branch: 'trim',
+      recordedAt: 'trim',
     };
 
     const rules = {
-      clientName: 'required',
-      binedPhone: 'required|min:10|max:11',
-      accessPhone: 'required|min:10|max:11',
-      protocol: 'required|alpha_numeric',
-      calledAt: 'required|date',
+      phone: 'required|min:10|max:11',
+      branch: 'required|alpha_numeric',
+      recordedAt: 'required|date',
     };
 
     const messages = {
@@ -53,20 +49,8 @@ export default (router: Router) => {
       return;
     }
 
-    const protocolExists = await Tabulation.findOne({
-      protocol: params.protocol,
-    });
-
-    if (protocolExists) {
-      response.status(400).json({
-        protocol: 'O protocolo informado já existe na base de dados',
-      });
-
-      return;
-    }
-
     try {
-      response.json(await Tabulation.create(request.body));
+      response.json(await Recording.create(request.body));
     } catch (err) {
       logger(err);
 

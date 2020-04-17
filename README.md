@@ -1,6 +1,10 @@
 # DDR Challenge
 
-Esta api recebe e responde em formato JSON. Os dados serão persistidos no MongoDB.
+Esta api recebe e responde em formato JSON. Um serviço de scheduling será executado em background para realizar os matchings entre as tabulações e gravações cujo dados estão e serão armazenados no MongoDB.
+
+**PS:** Use o arquivo .env.example para criar um arquivo .env com suas configurações de ambiente.
+
+## Comandos
 
 ```
 yarn install -> instala todas as dependências
@@ -10,7 +14,7 @@ yarn build -> gera os arquivos .js através dos arquivos typescript
 yarn test -> executa todos os testes
 ```
 
-### Endpoints
+## Endpoints
 
 **/tabulations**
 ```js

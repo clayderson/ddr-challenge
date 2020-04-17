@@ -2,7 +2,15 @@ import mongoose from '../util/mongoose';
 
 const { Schema } = mongoose;
 
-export default mongoose.model('Tabulation', new Schema({
+export interface ITabulation extends mongoose.Document {
+  clientName: string,
+  binedPhone: string,
+  accessPhone: string,
+  protocol: string,
+  calledAt: Date,
+}
+
+export default mongoose.model<ITabulation>('Tabulation', new Schema({
   clientName: {
     type: String,
     required: true,

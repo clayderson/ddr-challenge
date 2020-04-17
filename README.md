@@ -1,13 +1,16 @@
-### Endpoints
+# DDR Challenge
 
 Esta api recebe e responde em formato JSON. Os dados serão persistidos no MongoDB.
 
 ```
+yarn install -> instala todas as dependências
 yarn dev -> inicia o ambiente de desenvolvimento
 yarn start -> inicia o servidor de produção (requer build)
 yarn build -> gera os arquivos .js através dos arquivos typescript
 yarn test -> executa todos os testes
 ```
+
+### Endpoints
 
 **/tabulations**
 ```js
@@ -61,7 +64,7 @@ Esta rota aceita os seguintes parâmetros: select, page e limit.
 
 ```
 select (default: undefined) -> filtragem de campos usando o select do Mongoose
-page (default: 1) -> especifica a página a ser buscada
+page (default: 1, min: 1) -> especifica a página a ser buscada
 limit (default: 100, min: 1, max: 100) -> especifica a página a ser buscada
 ```
 

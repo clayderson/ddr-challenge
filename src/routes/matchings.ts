@@ -6,6 +6,8 @@ const logger = debug('challenge:matchings');
 
 export default (router: Router) => {
   router.get('/matchings', async (request: Request, response: Response) => {
+    const { select } = request.query;
+
     let page = parseInt(
       request.query.page ? request.query.page.toString() : '0', 10
     );
@@ -25,9 +27,13 @@ export default (router: Router) => {
     const total = await Matching.estimatedDocumentCount();
     const totalPages = Math.round(total / limit) >= 1 ? Math.round(total / limit) : 1;
 
-    const matchings = await Matching.find().populate([
-      'recording', 'tabulation'
-    ]).skip(limit * (page - 1)).limit(limit);
+    const matchings = await Matching
+      .find()
+      .populate('recording', select)
+      .populate('tabulation', select)
+      .select(select)
+      .skip(limit * (page - 1))
+      .limit(limit);
 
     try {
       response.json({

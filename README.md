@@ -1,6 +1,6 @@
 # DDR Challenge
 
-Esta api recebe e responde em formato JSON. Um serviço de scheduling será executado em background para realizar os matchings entre as tabulações e gravações cujo dados estão e serão armazenados no MongoDB.
+Esta api recebe e responde em formato JSON. Um serviço de scheduling será executado em background para realizar os matchings entre as tabulações e gravações cujo dados estão e/ou serão armazenados no MongoDB.
 
 **PS:** Use o arquivo .env.example para criar um arquivo .env com suas configurações de ambiente.
 
@@ -69,7 +69,7 @@ Esta rota aceita os seguintes parâmetros: select, page e limit.
 ```
 select (default: undefined) -> filtragem de campos usando o select do Mongoose
 page (default: 1, min: 1) -> especifica a página a ser buscada
-limit (default: 100, min: 1, max: 100) -> especifica a página a ser buscada
+limit (default: 100, min: 1, max: 100) -> especifica um limite de registros a serem retornados
 ```
 
 ```js
